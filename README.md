@@ -1,12 +1,6 @@
 # onboard_screen
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
+![sneijder pe-20220125-0001](https://user-images.githubusercontent.com/74558294/153439280-48117ef3-6b38-4e30-9332-d92b1f6307ce.jpg)
 
 - [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
 - [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
