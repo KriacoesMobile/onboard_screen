@@ -14,4 +14,8 @@ Size size(BuildContext context) {
   Size size = MediaQuery.of(context).size;
   return size;
 }
- const List<Widget> screens =  [Screen(), FirstScreen(), SecondScreen()];
+
+const List<Widget> screens = [Screen(), FirstScreen(), SecondScreen()];
+const List<String> tabtitle = ['All', 'Coffee', 'New products'];
+const onboardcolor = Color.fromARGB(255, 141, 99, 84);
+const backgroundcolor = Color.fromARGB(255, 250, 222, 196);

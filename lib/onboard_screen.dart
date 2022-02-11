@@ -1,9 +1,4 @@
-import 'dart:developer';
-
 import 'package:coffee/button/tab_indicator.dart';
-import 'package:coffee/screens/first_screen.dart';
-import 'package:coffee/screens/screen.dart';
-import 'package:coffee/screens/second_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:coffee/constant/const.dart';
 part './button/fab_button.dart';
@@ -19,8 +14,8 @@ class _OnboardScreenState extends State<OnboardScreen>
     with TickerProviderStateMixin {
   late final TabController _tabcontroller;
   bool get _isLastPage => screens.length - 1 == _selectedIndex;
+  int isv = 0;
   int _selectedIndex = 0;
-  double _activeSize = 0;
   @override
   void initState() {
     _tabcontroller = TabController(
@@ -32,10 +27,11 @@ class _OnboardScreenState extends State<OnboardScreen>
   }
 
   void _changeAndIncrement([int? val]) {
+    setState(() => isv++);
     if (_isLastPage && val == null) {
+      Navigator.pushNamed(context, '/home');
       return;
     }
-
     _changedot(_selectedIndex);
     _changePage(val);
   }
@@ -63,7 +59,7 @@ class _OnboardScreenState extends State<OnboardScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 141, 99, 84),
+      backgroundColor: onboardcolor,
       body: Padding(
         padding: const EdgeInsets.all(15.0),
         child: Column(
@@ -88,8 +84,7 @@ class _OnboardScreenState extends State<OnboardScreen>
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                TabIndicator(
-                    indicatorSize: _activeSize, selectedIndex: _selectedIndex),
+                TabIndicator(indicatorSize: 12, selectedIndex: _selectedIndex),
                 _StartFabButton(
                   isLastPage: _isLastPage,
                   onPressed: () {

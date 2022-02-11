@@ -58,6 +58,8 @@ flutter:
     - asset/svg/coffee.svg
     - asset/svg/first.svg
     - asset/svg/second.svg
+    - asset/svg/svg5.svg
+    - asset/img/musk.jpg
     #- images/a_dot_ham.jpeg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
