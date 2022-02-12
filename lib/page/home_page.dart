@@ -1,6 +1,6 @@
 import 'package:coffee/constant/const.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:dot_navigation_bar/dot_navigation_bar.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class HomePage extends StatefulWidget {
@@ -11,6 +11,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  int _currentIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -89,6 +91,7 @@ class _HomePageState extends State<HomePage> {
               child: ListView.builder(
                 itemCount: 5,
                 shrinkWrap: true,
+                physics: BouncingScrollPhysics(),
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) => Container(
                   width: 100,
@@ -108,56 +111,90 @@ class _HomePageState extends State<HomePage> {
                           width: 50,
                         ),
                       ),
-                      Positioned(
-                        bottom: -20,
-                        child: FloatingActionButton(
-                            heroTag: '$index',
-                            mini: true,
-                            onPressed: () {},
-                            child: const Icon(Icons.add)),
-                      ),
-                      const Positioned(
-                        top: 65,
-                        left: 10,
-                        child: Text(
-                          'Coffee Beans',
-                          style: TextStyle(
-                            color: onboardcolor,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                      const Positioned(
-                        top: 80,
-                        left: 10,
-                        child: Text(
-                          'Price',
-                          style: TextStyle(
-                            color: onboardcolor,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                      Positioned(
-                        top: 95,
-                        child: SizedBox(
-                            width: 100,
-                            child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
-                                children: [
-                                  Text('\$17.80'),
-                                  Icon(Icons.favorite)
-                                ])),
-                      )
+                      // Positioned(
+                      //   bottom: -20,
+                      //   child: FloatingActionButton(
+                      //       heroTag: '$index',
+                      //       mini: true,
+                      //       onPressed: () {},
+                      //       child: const Icon(Icons.add)),
+                      // ),
+                      // const Positioned(
+                      //   top: 65,
+                      //   left: 10,
+                      //   child: Text(
+                      //     'Coffee Beans',
+                      //     style: TextStyle(
+                      //       color: onboardcolor,
+                      //       fontWeight: FontWeight.bold,
+                      //     ),
+                      //   ),
+                      // ),
+                      // const Positioned(
+                      //   top: 80,
+                      //   left: 10,
+                      //   child: Text(
+                      //     'Price',
+                      //     style: TextStyle(
+                      //       color: onboardcolor,
+                      //       fontWeight: FontWeight.bold,
+                      //     ),
+                      //   ),
+                      // ),
+                      // Positioned(
+                      //   top: 95,
+                      //   child: SizedBox(
+                      //       width: 100,
+                      //       child: Row(
+                      //           mainAxisAlignment:
+                      //               MainAxisAlignment.spaceAround,
+                      //           children: const [
+                      //             Text('\$17.80'),
+                      //             Icon(Icons.favorite)
+                      //           ])),
+                      // )
                     ],
                   ),
                 ),
               ),
-            )
+            ),
           ],
         ),
       ),
+      bottomNavigationBar: DotNavigationBar(
+        currentIndex: _currentIndex,
+        onTap: _handleIndexChanged,
+        dotIndicatorColor: Colors.black,
+        items: [
+          /// Home
+          DotNavigationBarItem(
+            icon: Icon(Icons.home),
+            selectedColor: Colors.purple,
+          ),
+
+          /// Likes
+          DotNavigationBarItem(
+            icon: Icon(Icons.favorite_border),
+            selectedColor: Colors.pink,
+          ),
+
+          /// Search
+          DotNavigationBarItem(
+            icon: Icon(Icons.search),
+            selectedColor: Colors.orange,
+          ),
+
+          /// Profile
+          DotNavigationBarItem(
+            icon: Icon(Icons.person),
+            selectedColor: Colors.teal,
+          ),
+        ],
+      ),
     );
+  }
+
+  _handleIndexChanged(int value) {
+    setState(() => _currentIndex = value);
   }
 }
