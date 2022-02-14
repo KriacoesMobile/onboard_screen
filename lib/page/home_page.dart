@@ -87,73 +87,80 @@ class _HomePageState extends State<HomePage> {
             ),
             const SizedBox(height: 50),
             SizedBox(
-              height: 150,
+              height: 250,
               child: ListView.builder(
-                itemCount: 4,
+                itemCount: 6,
                 shrinkWrap: true,
                 physics: const BouncingScrollPhysics(),
                 scrollDirection: Axis.horizontal,
-                itemBuilder: (context, index) => Container(
-                  width: 100,
-                  decoration: BoxDecoration(
-                    color: const Color.fromARGB(255, 255, 241, 227),
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                  child: Stack(
-                    alignment: Alignment.center,
-                    clipBehavior: Clip.none,
-                    children: [
-                      Positioned(
-                        top: -20,
-                        child: SvgPicture.asset(
-                          'asset/svg/svg5.svg',
-                          height: 50,
-                          width: 50,
-                        ),
-                      ),
-                      Positioned(
-                        bottom: -20,
-                        child: FloatingActionButton(
-                            heroTag: '$index',
-                            mini: true,
-                            onPressed: () {},
-                            child: const Icon(Icons.add)),
-                      ),
-                      const Positioned(
-                        top: 65,
-                        left: 10,
-                        child: Text(
-                          'Coffee Beans',
-                          style: TextStyle(
-                            color: onboardcolor,
-                            fontWeight: FontWeight.bold,
+                itemBuilder: (context, index) => Padding(
+                  padding: const EdgeInsets.only(right: 15),
+                  child: Container(
+                    margin: const EdgeInsets.symmetric(vertical: 25),
+                    decoration: BoxDecoration(
+                      color: const Color.fromARGB(255, 255, 241, 227),
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    width: 150,
+                    child: Stack(
+                      alignment: Alignment.center,
+                      clipBehavior: Clip.none,
+                      children: [
+                        Positioned(
+                          top: -20,
+                          child: SvgPicture.asset(
+                            'asset/svg/svg5.svg',
+                            height: 50,
+                            width: 50,
                           ),
                         ),
-                      ),
-                      const Positioned(
-                        top: 80,
-                        left: 10,
-                        child: Text(
-                          'Price',
-                          style: TextStyle(
-                            color: onboardcolor,
-                            fontWeight: FontWeight.bold,
+                        Positioned(
+                          bottom: -20,
+                          child: FloatingActionButton(
+                              heroTag: '$index',
+                              mini: true,
+                              onPressed: () {},
+                              child: const Icon(Icons.add)),
+                        ),
+                        const Positioned(
+                          bottom: 80,
+                          left: 10,
+                          child: Text(
+                            'Coffee Beans',
+                            style: TextStyle(
+                              color: onboardcolor,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ),
-                      ),
-                      Positioned(
-                        top: 95,
-                        child: SizedBox(
+                        const Positioned(
+                          bottom: 50,
+                          left: 10,
+                          child: Text(
+                            'Price',
+                            style: TextStyle(
+                              color: onboardcolor,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                        Positioned(
+                          bottom: 30,
+                          left: 10,
+                          right: 10,
+                          child: SizedBox(
                             width: 100,
                             child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
-                                children: const [
-                                  Text('\$17.80'),
-                                  Icon(Icons.favorite)
-                                ])),
-                      )
-                    ],
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: const [
+                                Text('\$17.80'),
+                                Icon(Icons.favorite)
+                              ],
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
                   ),
                 ),
               ),
@@ -166,27 +173,20 @@ class _HomePageState extends State<HomePage> {
         onTap: _handleIndexChanged,
         dotIndicatorColor: Colors.black,
         items: [
-          /// Home
           DotNavigationBarItem(
-            icon: Icon(Icons.home),
+            icon: const Icon(Icons.home),
             selectedColor: Colors.purple,
           ),
-
-          /// Likes
           DotNavigationBarItem(
-            icon: Icon(Icons.favorite_border),
+            icon: const Icon(Icons.favorite_border),
             selectedColor: Colors.pink,
           ),
-
-          /// Search
           DotNavigationBarItem(
-            icon: Icon(Icons.search),
+            icon: const Icon(Icons.search),
             selectedColor: Colors.orange,
           ),
-
-          /// Profile
           DotNavigationBarItem(
-            icon: Icon(Icons.person),
+            icon: const Icon(Icons.person_outline),
             selectedColor: Colors.teal,
           ),
         ],

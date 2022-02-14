@@ -1,5 +1,4 @@
 import 'package:coffee/page/home_page.dart';
-import 'package:coffee/test.dart';
 import 'package:flutter/material.dart';
 import 'package:coffee/onboard_screen.dart';
 
@@ -17,7 +16,6 @@ class MyApp extends StatelessWidget {
         routes: {
           '/': (context) => const OnboardScreen(),
           '/home': (context) => const HomePage(),
-          '/test': (context) => const Test()
         },
       );
 }
